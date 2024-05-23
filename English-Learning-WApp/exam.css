@@ -60,3 +60,35 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 /* Navbar Stili */
+.navbar{
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #121e22;
+      }
+     .r{
+        float: right;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #337a8b;
+        font-size: x-large;
+      }
+      li {
+        color: rgb(255, 255, 255);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        float: left;
+        font-size: medium;
+      }
+      
+      li a:hover {
+        background-color: #111;
+      }
+}
