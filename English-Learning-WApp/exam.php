@@ -3,8 +3,8 @@
 <head>
     <title>English App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="exam.css"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="exam.css"/>
 </head>
 <body>
     <nav class="navbar">
@@ -23,7 +23,8 @@ include 'connection.php';// Veritabanı bağlantısını
 // Kullanıcı ayarlarından sorulacak yeni kelime sayısını al
 $questionCount = isset($_SESSION['new_word_count']) ? $_SESSION['new_word_count'] : 10;  // Varsayılan olarak 10 soru
 // daha önce cevaplanmamış kelimeleri seç
-$sql = "SELECT id, kelime, ceviri FROM kelimeler WHERE correct_count = 0 LIMIT $questionCount";
+$bugunun_tarihi= date("Y-m-d");
+$sql = "SELECT id, kelime, ceviri FROM kelimeler WHERE next_test_date = '$bugunun_tarihi' LIMIT $questionCount";
 $result = $con->query($sql);
 echo '<form action="process_exam.php" method="post">';
 if ($result->num_rows > 0) {
