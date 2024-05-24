@@ -9,12 +9,18 @@ if ($result->num_rows > 0) {
     // Raporu tablo halinde göster
     echo '<h1>Çözümlediğiniz Kelimeler Raporu</h1>';
     echo '<table border="1">';
-    echo '<tr><th>Kelime</th><th>Çeviri</th><th>Çözümleme Sayısı</th></tr>';
+    echo '<tr>
+    <th>Kelime</th>
+    <th>Çeviri</th>
+    <th>Çözümleme Sayısı</th>
+    <th>Sorunun tekrarlanacağı tarih</th>
+    </tr>';
     while($row = $result->fetch_assoc()) {
         echo '<tr>';
         echo '<td>' . $row["kelime"] . '</td>';
         echo '<td>' . $row["ceviri"] . '</td>';
         echo '<td>' . $row["correct_count"] . '</td>';
+        echo '<td>' . $row["next_test_date"] . '</td>';
         echo '</tr>';
     }
     echo '</table>';
